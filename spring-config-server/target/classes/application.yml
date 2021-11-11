@@ -1,0 +1,6 @@
+# provide the git url to this server
+# this server will connect to github repo
+
+spring:  cloud:    config:      server:        git:          uri: D://2021/apps/stsexamples/leaguegitrepo
+#           uri: https://github.com/Shristihub/microconfig-repo.git
+server:  port: 8888

@@ -1,0 +1,12 @@
+server:
+  port: 8761
+
+  
+# http://localhost:8761   is the url of the service registry
+# This is a registry. so do not self register line no:14
+# This is a registry do not fetch registry default is true. change to false line no:14
+
+eureka:  instance:    hostname: localhost
+  client:    service-url: 
+      default-zone: http://${eureka.instance.hostname}:${server.port}    fetch-registry: false  
+    register-with-eureka: false

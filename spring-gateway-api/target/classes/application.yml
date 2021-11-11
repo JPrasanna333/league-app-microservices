@@ -1,0 +1,38 @@
+server:
+  port: 9000
+  
+eureka:  client:    service-url:      default-zone: http://localhost:8761/
+
+# declarative configuration of routes
+# each route has id,uri, predicates(path),filters
+
+# http://localhost:9000/ics-league-api/leagues
+
+spring:   application:    name: GATEWAY-SERVICE
+   cloud:    gateway:      routes:      - id: leagueService
+        uri: lb://LEAGUE-SERVICE
+        predicates:
+        - Path=/ics-league-api/** 
+      - id: fixturesService
+        uri: lb://FIXTURES-SERVICE
+        predicates:
+        - Path=/ics-fixtures-api/**
+#        filters:
+#        - AddRequestHeader=desc,cart-details
+#        - AddResponseHeader=result,showing cart details
+      - id: teamService
+        uri: lb://TEAM-SERVICE
+        predicates:
+        - Path=/ics-team-api/** 
+#        filters:
+#        - AddRequestHeader=desc,order details for your cart
+#        - AddRequestHeader=payment, online payment
+#        - AddResponseHeader=result,sending order details
+#   
+   
+   
+   
+   
+   
+   
+   
